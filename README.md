@@ -1,4 +1,4 @@
-# Quiz Master
+# Quiz Master s
 
 Fullstack приложение на Next.js (frontend) и NestJS (backend) с PostgreSQL.
 
