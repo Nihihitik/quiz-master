@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: quiz_master_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: quiz_master
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - quiz_master_network
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: quiz_master_backend
+    restart: unless-stopped
+    ports:
+      - '3001:3001'
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: quiz_master
+      PORT: 3001
+    depends_on:
+      - postgres
+    networks:
+      - quiz_master_network
+
+volumes:
+  postgres_data:
+
+networks:
+  quiz_master_network:
+    driver: bridge
