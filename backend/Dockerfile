@@ -36,4 +36,4 @@ COPY drizzle.config.ts ./
 EXPOSE 3001
 
 # Запускаем приложение
-CMD ["node", "dist/main"]
+CMD ["node", "dist/src/main.js"]
