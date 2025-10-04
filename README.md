@@ -1,6 +1,6 @@
 # Quiz Master
 
-Fullstack приложение на Next.js (frontend) и NestJS (backend) с PostgreSQL.
+Fullstack приложение на Next.js (frontend) и NestJS (backend) с PostgreSQL. Изменения
 
 ## Структура проекта
 
